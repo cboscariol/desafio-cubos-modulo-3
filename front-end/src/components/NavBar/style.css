@@ -1,0 +1,27 @@
+.navBar{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 138px;
+    background-color: #434343;
+    border-radius: 0px 0px 32px 0px;
+}
+
+.navBar img {
+    width: 73px;
+    height: 73px;
+    background-color: #C4C4C4;
+    border-radius: 50%;
+}
+
+button {
+    outline: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+button:last-child  img {
+    width: 33px;
+    height: 33px;
+}

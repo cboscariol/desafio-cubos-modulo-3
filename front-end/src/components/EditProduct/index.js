@@ -73,17 +73,7 @@ export default function NovoProduto() {
                 }}/>    
             </FormControl>
 
-            <FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
-                <TextField
-                    label="Dono do produto"
-                    id="dono-do-produto"
-                    className={clsx(classes.margin)}
-                    InputProps={{
-                        startAdornment: <InputAdornment position="start"></InputAdornment>,
-                }}/>    
-            </FormControl>
-
-            <FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
+           <FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
                  <TextField
                     label="Imagem"
                     id="imagem-do-produto"

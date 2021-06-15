@@ -37,6 +37,8 @@ import Link from '@material-ui/core/Link';
 
 
 return (
+
+  <div className={classes.principal}>
     <div className={classes.root}>
       <div className={classes.container}> 
       <Typography variant="h1" component="h2" className={classes.h1Login}>
@@ -112,5 +114,6 @@ return (
 
       </div>
     </div>
+  </div>
   );
 }

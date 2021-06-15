@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
     root: {
       width: '100%',
-      backgroundColor: '#E5E5E5',
     },
     margin: {
       margin: theme.spacing(1),
@@ -49,5 +48,7 @@ export default makeStyles((theme) => ({
     },
     productImage: {
       borderRadius: 16,
+      width: 308,
+      height: 402,
     }
   }));

@@ -2,6 +2,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 export default makeStyles((theme) => ({
+    principal: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      marginLeft: 'auto',
+      width: '100%'
+    },
     root: {
       display: 'flex',
       flexWrap: 'wrap',

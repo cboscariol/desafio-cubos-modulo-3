@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
     root: {
       width: '100%',
+      marginLeft: 30,
     },
     margin: {
       margin: theme.spacing(1),
@@ -18,13 +19,11 @@ export default makeStyles((theme) => ({
     formControlBox: {
       display: 'flex', 
     },
-    crieUmaContaLink: {
-      width: '100%',
-    },
     buttonLink: {
       display: 'flex',
       gap: 24,
-      marginTop: 197,
+      marginTop: 120,
+      marginBottom: 50,
     },
     containerForms: {
       maxWidth: 392,
@@ -33,9 +32,6 @@ export default makeStyles((theme) => ({
     },
     h1NewProduct: {
       fontSize: 48,
-    },
-    h2NewProduct: {
-      fontSize: 34,
     },
     newProducttitle: {
       display: 'flex',

@@ -18,26 +18,20 @@ export default makeStyles((theme) => ({
     formControlBox: {
       display: 'flex', 
     },
-    crieUmaContaLink: {
-      width: '100%',
-    },
     buttonLink: {
       display: 'flex',
       gap: 24,
-      marginTop: 197,
+      marginTop: 120,
     },
     containerForms: {
       maxWidth: 392,
       width: '100%',
       marginTop: 57,
     },
-    h1NewProduct: {
+    h1Profile: {
       fontSize: 48,
     },
-    h2NewProduct: {
-      fontSize: 34,
-    },
-    newProducttitle: {
+    profile: {
       display: 'flex',
       flexDirection: 'column',
       gap: 86,
