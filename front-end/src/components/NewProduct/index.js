@@ -134,7 +134,7 @@ export default function NovoProduto() {
 			</div>
 
 			<div className={classes.buttonLink}>
-				<Link className={classes.fontStyleLogin} component="button" variant="body2" onClick={() => { console.info("I'm a button."); }} underline='always' onClick={redirecionar}>
+				<Link className={classes.fontStyleLogin} component="button" variant="body2" underline='always' onClick={redirecionar}>
 					CANCELAR
 				</Link>
 				<Button variant="contained" color="primary" onClick={newproduct}> ADICIONAR PRODUTO </Button>

@@ -20,7 +20,7 @@ import { useHistory } from 'react-router-dom'
 export default function Login() {
   const classes = useStyles();
   const history = useHistory();
-  const { token, logar, deslogar } = useAuthProvider()
+  const { logar } = useAuthProvider()
   const [values, setValues] = React.useState({
     email: '',
     password: '',

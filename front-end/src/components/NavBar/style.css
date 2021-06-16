@@ -3,20 +3,17 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    max-width: 138px;
+    min-width: 138px;
     background-color: #434343;
     border-radius: 0px 0px 32px 0px;
 }
 
-.navBar img {
-    width: 73px;
-    height: 73px;
-    border-radius: 50%;
-}
-
 .navBarAuxiliar {
     margin-top: 50px;
-    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px
 }
 
 .navBar button {
@@ -26,8 +23,9 @@
     cursor: pointer;
 }
 
-.navBar button:last-child  img {
+.navBar button:last-child  img, .noSelected{
     width: 33px;
     height: 33px;
-    margin-left: 20px;
+  
 }
+

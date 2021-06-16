@@ -39,9 +39,9 @@ function App() {
             <Route path='/cadastro' exact component={NewUser} />
             <Route path='/' exact component={Login} />
             <ProtectedRoutes>
-              <div>
+              <div className='appContainer'>
                 <NavBar />
-                <div>
+                <div className='appContainer'>
                   <Route path='/produtos/novo' exact component={NewProduct} />
                   <Route path='/editar_produto' exact component={EditProduct} />
                   <Route path='/perfil' exact component={Profile} />

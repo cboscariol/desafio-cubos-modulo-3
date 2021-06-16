@@ -8,101 +8,101 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Image from './productImage.png';
-import NavBar from '../NavBar';
 
 
 
 
 export default function NovoProduto() {
-  const classes = useStyles();
-  
+    const classes = useStyles();
 
-  return (
-    <div className={classes.root}>
-      <div className={classes.newProducttitle}>
-        <Typography variant="h1" component="h2" className={classes.h1NewProduct}>
-            Nome da Loja
+
+    return (
+        <div className={classes.root}>
+            <div className={classes.newProducttitle}>
+                <Typography variant="h1" component="h2" className={classes.h1NewProduct}>
+                    Nome da Loja
         </Typography>
 
-        <Typography variant="h1" component="h2" className={classes.h2NewProduct}>
-            Editar produto
+                <Typography variant="h1" component="h2" className={classes.h2NewProduct}>
+                    Editar produto
         </Typography>
-      </div>
-      
-    <div className={classes.containerFormsImage}>
-
-      <div className={classes.containerForms}>
-
-            <FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
-                 <TextField
-                    label="Nome do produto"
-                    id="nome-do-produto"
-                    className={clsx(classes.margin)}
-                    InputProps={{
-                        startAdornment: <InputAdornment position="start"></InputAdornment>,
-                }}/>    
-            </FormControl>
-        <div className={classes.formControlBox}>
-            <FormControl fullWidth className={classes.margin, classes.withoutLabel}>
-                <TextField
-                    label="Preço"
-                    id="preco"
-                    className={clsx(classes.margin)}
-                    InputProps={{
-                        startAdornment: <InputAdornment position="start">R$</InputAdornment>,
-                }}/> 
-
-            </FormControl>  
-            <FormControl fullWidth className={classes.margin, classes.withoutLabel}>
-                <TextField
-                    label="Estoque"
-                    id="estoque"
-                    className={clsx(classes.margin)}
-                    InputProps={{
-                        startAdornment: <InputAdornment position="start">Un</InputAdornment>
-                }}/>   
-            </FormControl>    
-        </div>
-
-            <FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
-                <TextField
-                    label="Descrição do produto"
-                    id="descricao-do-produto"
-                    className={clsx(classes.margin)}
-                    InputProps={{
-                        startAdornment: <InputAdornment position="start"></InputAdornment>,
-                }}/>    
-            </FormControl>
-
-           <FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
-                 <TextField
-                    label="Imagem"
-                    id="imagem-do-produto"
-                    className={clsx(classes.margin)}
-                    InputProps={{
-                        startAdornment: <InputAdornment position="start"></InputAdornment>,
-                }}/>    
-            </FormControl>
-
-        </div>
-
-            <div>
-                <img className={classes.productImage} src={Image} alt="imagem-do-produto" />
             </div>
 
-    </div>
-            
-            <div className={classes.buttonLink}> 
-                <Link className={classes.fontStyleLogin} component="button" variant="body2" onClick={() => {console.info("I'm a button."); }} underline='always'>
+            <div className={classes.containerFormsImage}>
+
+                <div className={classes.containerForms}>
+
+                    <FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
+                        <TextField
+                            label="Nome do produto"
+                            id="nome-do-produto"
+                            className={clsx(classes.margin)}
+                            InputProps={{
+                                startAdornment: <InputAdornment position="start"></InputAdornment>,
+                            }} />
+                    </FormControl>
+                    <div className={classes.formControlBox}>
+                        <FormControl fullWidth className={classes.margin, classes.withoutLabel}>
+                            <TextField
+                                label="Preço"
+                                id="preco"
+                                className={clsx(classes.margin)}
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">R$</InputAdornment>,
+                                }} />
+
+                        </FormControl>
+                        <FormControl fullWidth className={classes.margin, classes.withoutLabel}>
+                            <TextField
+                                label="Estoque"
+                                id="estoque"
+                                className={clsx(classes.margin)}
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">Un</InputAdornment>
+                                }} />
+                        </FormControl>
+                    </div>
+
+                    <FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
+                        <TextField
+                            label="Descrição do produto"
+                            id="descricao-do-produto"
+                            className={clsx(classes.margin)}
+                            InputProps={{
+                                startAdornment: <InputAdornment position="start"></InputAdornment>,
+                            }} />
+                    </FormControl>
+
+                    <FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
+                        <TextField
+                            label="Imagem"
+                            id="imagem-do-produto"
+                            className={clsx(classes.margin)}
+                            InputProps={{
+                                startAdornment: <InputAdornment position="start"></InputAdornment>,
+                            }} />
+                    </FormControl>
+
+                </div>
+
+                <div>
+                    <img className={classes.productImage} src={Image} alt="imagem-do-produto" />
+                </div>
+
+            </div>
+
+            <div className={classes.buttonLink}>
+                <Link className={classes.fontStyleLogin} component="button" variant="body2" onClick={() => { console.info("I'm a button."); }} underline='always'>
                     CANCELAR
                 </Link>
                 <Button variant="contained" color="primary"> ADICIONAR PRODUTO </Button>
             </div>
-               
 
-            
-      
-       
-    </div>
 
-  )}
+
+
+
+        </div>
+
+    )
+}
