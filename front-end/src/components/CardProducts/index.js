@@ -25,17 +25,17 @@ export default function CardProducts(props) {
       const resposta = await del(`/produtos/${props.id}`, token);
       props.onDelete(props.id)
 
-      console.log(resposta);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   }
 
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={() => props.onClick(props.id)}>
       <CardActionArea>
         <CardMedia
+          className={classes.cardImage}
           component="img"
           alt="foto-do-produto"
           height="240"
@@ -58,11 +58,11 @@ export default function CardProducts(props) {
 
           <div className={classes.bottonContent}>
             <Typography variant="body2" color="textSecondary" component="p" >
-              {props.estoque}
+              Estoque: {props.estoque} un
             </Typography>
 
             <Typography variant="body2" color="textSecondary" component="p" >
-              {props.preco}
+              Preço: R$ {props.preco}
             </Typography>
           </div>
 

@@ -10,7 +10,7 @@ export default makeStyles({
   },
   bottonContent: {
     display: 'flex',
-    gap: 50,
+    gap: 20,
     marginTop: 20,
   },
   descricao: {
@@ -26,6 +26,8 @@ export default makeStyles({
     right: '92.79%',
     top: '9.63%',
     bottom: '80.4%',
-
+  },
+  cardImage: {
+    objectFit: 'cover',
   }
 });

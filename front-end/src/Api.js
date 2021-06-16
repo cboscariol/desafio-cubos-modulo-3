@@ -1,5 +1,5 @@
-async function post(resource, data, token) {
 
+async function post(resource, data, token) {
   const headers = {
     'Content-type': 'application/json',
   }
@@ -44,4 +44,21 @@ async function del(resource, token) {
   return resposta.json();
 }
 
-export { post, get, del };
+async function put(resource, data, token) {
+  const headers = {
+    'Content-type': 'application/json',
+  }
+
+  if (token) {
+    headers.Authorization = `Bearer ${token}`
+  }
+  const resposta = await fetch('https://desafio-m03.herokuapp.com' + resource, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+    headers,
+  });
+
+  return resposta.json();
+}
+
+export { post, get, del, put };

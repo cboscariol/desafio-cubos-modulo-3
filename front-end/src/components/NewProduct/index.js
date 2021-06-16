@@ -37,17 +37,12 @@ export default function NovoProduto() {
 
 
 	const newproduct = async () => {
-		console.log({
-			nome: values.nome, preco: values.preco, estoque: values.estoque,
-			descricao: values.descricao, imagem: values.imagem
-		})
 		try {
 			const resposta = await post('/produtos',
 				{
 					nome: values.nome, descricao: values.descricao, estoque: values.estoque,
 					preco: values.preco, imagem: values.imagem
 				}, token)
-			console.log(resposta);
 			history.push('/produtos')
 		} catch (error) {
 			console.log(error)

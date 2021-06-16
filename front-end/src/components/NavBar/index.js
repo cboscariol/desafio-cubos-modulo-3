@@ -16,11 +16,6 @@ function NavBar() {
     const history = useHistory();
     const [reRenders, setRerenders] = useState(0)
 
-    const logOut = () => {
-        history.push('/');
-        deslogar()
-    }
-
     const handleClick = (type) => {
         setRerenders(reRenders + 1)
         if (type === 'produtos') {
@@ -32,7 +27,8 @@ function NavBar() {
         }
 
         if (type === 'sair') {
-            return console.log('desloguei')
+            history.push('/');
+            return deslogar()
         }
     }
 
@@ -57,7 +53,7 @@ function NavBar() {
             <div className='navBarAuxiliar'>
                 <button onClick={() => handleClick('produtos')}>{showButtonHome()}</button>
                 <button onClick={() => handleClick('perfil')}>{showButtonPerfil()}</button>
-                <button onClick={logOut}> <img src={Close} alt="CloseButton" /></button>
+                <button onClick={() => handleClick('sair')}> <img src={Close} alt="CloseButton" /></button>
             </div>
         </div>
     )

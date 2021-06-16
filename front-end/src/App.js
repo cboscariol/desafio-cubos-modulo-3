@@ -15,7 +15,7 @@ import useAuth from "./hook/useAuth";
 
 function ProtectedRoutes(props) {
   const { token } = useAuth();
-  if (!token) return <Redirect to="/login" />;
+  if (!token) return <Redirect to="/" />;
   return props.children;
 }
 
@@ -25,16 +25,6 @@ function App() {
       <AuthProvider>
         <CssBaseline />
         <Router>
-          <nav>
-            <Link to='/cadastro'> Cadastro </Link>
-            <Link to='/produtos/novo'> Novo Produto </Link>
-            <Link to='/editar_produto'> Editar Produto </Link>
-            <Link to='/perfil'> Perfil </Link>
-            <Link to='/editar_perfil'> Editar Perfil </Link>
-            <Link to='/produtos'> Produtos </Link>
-            <Link to='/'> Login </Link>
-          </nav>
-
           <Switch>
             <Route path='/cadastro' exact component={NewUser} />
             <Route path='/' exact component={Login} />
@@ -42,11 +32,11 @@ function App() {
               <div className='appContainer'>
                 <NavBar />
                 <div className='appContainer'>
+                  <Route path='/produtos' exact component={Produtos} />
                   <Route path='/produtos/novo' exact component={NewProduct} />
-                  <Route path='/editar_produto' exact component={EditProduct} />
+                  <Route path='/produtos/editar' exact component={EditProduct} />
                   <Route path='/perfil' exact component={Profile} />
                   <Route path='/editar_perfil' exact component={EditProfile} />
-                  <Route path='/produtos' exact component={Produtos} />
                 </div>
               </div>
             </ProtectedRoutes>

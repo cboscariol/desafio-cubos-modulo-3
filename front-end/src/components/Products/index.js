@@ -12,7 +12,7 @@ export default function Produtos() {
   const classes = useStyles();
   const history = useHistory();
   const [products, setProducts] = useState([]);
-  const { token } = useAuth();
+  const { token, user } = useAuth();
 
 
   async function carregarProdutos() {
@@ -20,14 +20,21 @@ export default function Produtos() {
       const produtosCadastrados = await get('/produtos', token);
 
       setProducts(produtosCadastrados);
-      console.log(produtosCadastrados)
     } catch (error) {
       console.log(error.message);
     }
   }
 
-  const redirecionar = () => {
+  const redirecionarNewProduct = () => {
     history.push('/produtos/novo')
+  }
+
+  const redirectEditProduct = (id) => {
+    const product = products.find((p) => p.id === id)
+    history.push({
+      pathname: '/produtos/editar',
+      state: { product }
+    })
   }
 
   const deleteProduct = (id) => {
@@ -45,7 +52,7 @@ export default function Produtos() {
     <div className={classes.root}>
       <div className={classes.productstitle}>
         <Typography variant="h1" component="h2" className={classes.h1StoresName}>
-          Nome da Loja
+          {user.nome_loja}
         </Typography>
 
         <Typography variant="h1" component="h2" className={classes.h2StoresName}>
@@ -53,16 +60,16 @@ export default function Produtos() {
         </Typography>
       </div>
 
-      <div className={classes.containerProducts}>
+      <div className={classes.containerProducts} >
         {products.map((product) => (
-          <Card id={product.id} image={product.imagem} nome={product.nome}
+          <Card onClick={redirectEditProduct} id={product.id} image={product.imagem} nome={product.nome}
             descricao={product.descricao} estoque={product.estoque}
             preco={product.preco} onDelete={deleteProduct} />
         ))}
       </div>
 
       <div className={classes.buttonLink}>
-        <Button variant="contained" color="primary" onClick={redirecionar}> ADICIONAR PRODUTO </Button>
+        <Button variant="contained" color="primary" onClick={redirecionarNewProduct}> ADICIONAR PRODUTO </Button>
       </div>
     </div>
 

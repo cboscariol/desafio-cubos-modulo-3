@@ -10,17 +10,13 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import { post } from "../../Api";
-import useAuthProvider from '../../hook/useAuthProvider'
+import useAuth from '../../hook/useAuth'
 import { useHistory } from 'react-router-dom'
-
-
-
-
 
 export default function Login() {
   const classes = useStyles();
   const history = useHistory();
-  const { logar } = useAuthProvider()
+  const { logar, saveUser } = useAuth()
   const [values, setValues] = React.useState({
     email: '',
     password: '',
@@ -39,12 +35,17 @@ export default function Login() {
     setValues({ ...values, [event.target.name]: event.target.value })
   }
 
+  const redirecionar = () => {
+    history.push('/cadastro')
+
+  }
+
   const login = async () => {
     try {
       const resposta = await post('/login', { email: values.email, senha: values.password })
-      console.log(resposta);
-      logar(resposta.token)
-      history.push('/produtos')
+      logar(resposta.token);
+      saveUser(resposta.usuario)
+      history.push('/produtos');
     } catch (error) {
       console.log(error)
     }
@@ -94,7 +95,7 @@ export default function Login() {
           <Button variant="contained" color="primary" onClick={login}> Entrar </Button>
           <div className={classes.crieUmaContaLink}>
             <Typography className={classes.fontStyleLogin} variant="body1" component="p" > Primeira vez aqui?  </Typography>
-            <Link className={classes.fontStyleLogin} component="button" variant="body2" onClick={() => { console.info("I'm a button."); }} underline='always'>
+            <Link className={classes.fontStyleLogin} component="button" variant="body2" onClick={redirecionar} underline='always'>
               CRIE UMA CONTA
         </Link>
           </div>
