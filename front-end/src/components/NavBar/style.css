@@ -1,6 +1,7 @@
 .navBar{
     display: flex;
     flex-direction: column;
+    align-items: center;
     min-height: 100vh;
     max-width: 138px;
     background-color: #434343;
@@ -10,18 +11,23 @@
 .navBar img {
     width: 73px;
     height: 73px;
-    background-color: #C4C4C4;
     border-radius: 50%;
 }
 
-button {
+.navBarAuxiliar {
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+.navBar button {
     outline: 0;
     border: 0;
     background-color: transparent;
     cursor: pointer;
 }
 
-button:last-child  img {
+.navBar button:last-child  img {
     width: 33px;
     height: 33px;
+    margin-left: 20px;
 }
