@@ -12,8 +12,6 @@ import { post } from "../../Api";
 import useAuth from "../../hook/useAuth";
 
 
-
-
 export default function NovoProduto() {
 	const classes = useStyles();
 	const history = useHistory();
@@ -38,7 +36,7 @@ export default function NovoProduto() {
 
 	const newproduct = async () => {
 		try {
-			const resposta = await post('/produtos',
+			await post('/produtos',
 				{
 					nome: values.nome, descricao: values.descricao, estoque: values.estoque,
 					preco: values.preco, imagem: values.imagem
@@ -76,7 +74,7 @@ export default function NovoProduto() {
 				</FormControl>
 
 				<div className={classes.formControlBox}>
-					<FormControl fullWidth className={classes.margin, classes.withoutLabel}>
+					<FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
 						<TextField
 							onChange={onChange}
 							label="Preço"
@@ -88,7 +86,7 @@ export default function NovoProduto() {
 								startAdornment: <InputAdornment position="start">R$</InputAdornment>,
 							}} />
 					</FormControl>
-					<FormControl fullWidth className={classes.margin, classes.withoutLabel}>
+					<FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
 						<TextField
 							onChange={onChange}
 							label="Estoque"

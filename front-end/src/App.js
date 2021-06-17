@@ -1,6 +1,6 @@
 import React from 'react';
 import './app.css';
-import { Route, BrowserRouter as Router, Link, Redirect, Switch } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Redirect, Switch } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Login from './components/Login'
 import NewUser from './components/NewUser'

@@ -20,11 +20,11 @@ export default function CardProducts(props) {
 
 
 
-  async function handleDelete() {
+  async function handleDelete(event) {
+    event.stopPropagation();
     try {
-      const resposta = await del(`/produtos/${props.id}`, token);
+      await del(`/produtos/${props.id}`, token);
       props.onDelete(props.id)
-
     } catch (error) {
       console.log(error);
     }
@@ -65,7 +65,6 @@ export default function CardProducts(props) {
               Preço: R$ {props.preco}
             </Typography>
           </div>
-
         </CardContent>
       </CardActionArea>
     </Card>

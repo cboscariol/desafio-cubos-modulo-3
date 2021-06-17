@@ -13,8 +13,6 @@ import { post } from "../../Api";
 import { useHistory } from 'react-router-dom'
 
 
-
-
 export default function NewUser() {
   const classes = useStyles();
   const history = useHistory();
@@ -47,31 +45,24 @@ export default function NewUser() {
 
   const newUser = async () => {
     try {
-      const resposta = await post('/usuarios',
+      await post('/usuarios',
         {
           nome: values.userName, nome_loja: values.storesName, email: values.email,
           senha: values.password, senhaConfirmacao: values.repeatPassword
         })
       history.push('/')
-
-
-
     } catch (error) {
       console.log(error)
     }
   }
 
-
-
-
   return (
-
     <div className={classes.principal}>
       <div className={classes.root}>
         <div className={classes.container}>
           <Typography variant="h1" component="h2" className={classes.h1Login}>
             Criar uma conta
-      </Typography>
+          </Typography>
           <TextField
             onChange={onChange}
             label="Seu nome"
@@ -142,16 +133,15 @@ export default function NewUser() {
               </InputAdornment>,
             }}
           />
+
           <Button variant="contained" color="primary" onClick={newUser}> CRIAR CONTA </Button>
+
           <div className={classes.jaPossuiContaLink}>
             <Typography className={classes.fontStyleUser} variant="body1" component="p" > Já possui conta?  </Typography>
             <Link className={classes.fontStyleUser} component="button" variant="body2" onClick={() => { console.info("I'm a button."); }} underline='always'>
               ACESSE
-        </Link>
+            </Link>
           </div>
-
-
-
         </div>
       </div>
     </div>

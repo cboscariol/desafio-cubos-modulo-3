@@ -56,7 +56,7 @@ export default function Profile() {
       Object.entries(values).filter(([, value]) => value)
     )
     try {
-      const resposta = await put('/perfil', apenasDadosAtualizados, token)
+      await put('/perfil', apenasDadosAtualizados, token)
       saveUser(apenasDadosAtualizados)
       history.push('/perfil');
     } catch (error) {
@@ -160,21 +160,14 @@ export default function Profile() {
               </InputAdornment>,
             }} />
         </FormControl>
-
-
-
-
       </div>
 
       <div className={classes.buttonLink}>
         <Link className={classes.fontStyleLogin} component="button" variant="body2" onClick={redirecionar} underline='always'>
           CANCELAR
-            </Link>
+        </Link>
         <Button variant="contained" color="primary" onClick={salvarDadosAtualizados}> SALVAR </Button>
       </div>
-
-
-
     </div>
 
   )

@@ -40,7 +40,7 @@ export default function NovoProduto() {
       Object.entries(editProduct).filter(([, value]) => value)
     )
     try {
-      const resposta = await put(`/produtos/${product.id}`, apenasDadosProdutoAtualizados, token)
+      await put(`/produtos/${product.id}`, apenasDadosProdutoAtualizados, token)
       history.push('/produtos');
     } catch (error) {
       console.log(error)
@@ -57,13 +57,12 @@ export default function NovoProduto() {
 
         <Typography variant="h1" component="h2" className={classes.h2NewProduct}>
           Editar produto
-                 </Typography>
+        </Typography>
       </div>
 
       <div className={classes.containerFormsImage}>
 
         <div className={classes.containerForms}>
-
           <FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
             <TextField
               label="Nome do produto"
@@ -76,8 +75,9 @@ export default function NovoProduto() {
                 startAdornment: <InputAdornment position="start"></InputAdornment>,
               }} />
           </FormControl>
+
           <div className={classes.formControlBox}>
-            <FormControl fullWidth className={classes.margin, classes.withoutLabel}>
+            <FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
               <TextField
                 label="Preço"
                 id="preco"
@@ -88,9 +88,9 @@ export default function NovoProduto() {
                 InputProps={{
                   startAdornment: <InputAdornment position="start">R$</InputAdornment>,
                 }} />
-
             </FormControl>
-            <FormControl fullWidth className={classes.margin, classes.withoutLabel}>
+
+            <FormControl fullWidth className={clsx(classes.margin, classes.withoutLabel)}>
               <TextField
                 label="Estoque"
                 id="estoque"
@@ -141,14 +141,9 @@ export default function NovoProduto() {
       <div className={classes.buttonLink}>
         <Link className={classes.fontStyleLogin} component="button" variant="body2" onClick={redirecionar} underline='always'>
           CANCELAR
-                </Link>
+        </Link>
         <Button variant="contained" color="primary" onClick={salvarProdutoAtualizado}> SALVAR EDIÇÃO </Button>
       </div>
-
-
-
-
-
     </div>
 
   )

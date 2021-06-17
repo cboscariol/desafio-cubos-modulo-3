@@ -29,7 +29,6 @@ export default function Profile() {
         <Typography variant="h1" component="h2" className={classes.h1Profile}>
           Perfil
         </Typography>
-
       </div>
 
       <div className={classes.containerForms}>
@@ -69,8 +68,6 @@ export default function Profile() {
               startAdornment: <InputAdornment position="start"></InputAdornment>,
             }} />
         </FormControl>
-
-
       </div>
 
       <div className={classes.buttonLink}>

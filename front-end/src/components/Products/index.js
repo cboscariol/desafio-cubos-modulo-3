@@ -18,7 +18,6 @@ export default function Produtos() {
   async function carregarProdutos() {
     try {
       const produtosCadastrados = await get('/produtos', token);
-
       setProducts(produtosCadastrados);
     } catch (error) {
       console.log(error.message);
@@ -29,7 +28,7 @@ export default function Produtos() {
     history.push('/produtos/novo')
   }
 
-  const redirectEditProduct = (id) => {
+  const redirectEditProduct = (id, event) => {
     const product = products.find((p) => p.id === id)
     history.push({
       pathname: '/produtos/editar',

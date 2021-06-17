@@ -58,7 +58,8 @@ export default function Login() {
         <div className={classes.container}>
           <Typography variant="h1" component="h2" className={classes.h1Login}>
             Login
-        </Typography>
+          </Typography>
+
           <TextField
             onChange={onChange}
             label="E-mail"
@@ -92,16 +93,15 @@ export default function Login() {
               </InputAdornment>,
             }}
           />
+
           <Button variant="contained" color="primary" onClick={login}> Entrar </Button>
+
           <div className={classes.crieUmaContaLink}>
             <Typography className={classes.fontStyleLogin} variant="body1" component="p" > Primeira vez aqui?  </Typography>
             <Link className={classes.fontStyleLogin} component="button" variant="body2" onClick={redirecionar} underline='always'>
               CRIE UMA CONTA
-        </Link>
+             </Link>
           </div>
-
-
-
         </div>
       </div>
     </div>
