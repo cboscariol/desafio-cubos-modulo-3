@@ -36,7 +36,7 @@ const cadastrarProduto = async (req, res) => {
 
 const listarProdutos = async (req, res) => {
     try {
-        const produtos = await conexao.query('select * from produtos');
+        const produtos = await conexao.query('select * from produtos where usuario_id = $1', [req.usuario.id]);
         return res.status(200).json(produtos.rows);
     } catch (error) {
         return res.status(400).json(error.message);
