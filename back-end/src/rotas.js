@@ -4,7 +4,6 @@ const login = require('./controladores/login');
 const perfil = require('./controladores/perfil');
 const produtos = require('./controladores/produtos');
 const verificacaoLogin = require('./verificacoes/verificacaoLogin');
-const verificacaoProdutos = require('./verificacoes/verificacaoProdutos')
 
 const rotas = express();
 
@@ -23,7 +22,7 @@ rotas.post('/login', login.logar);
 rotas.get('/produtos', verificacaoLogin, produtos.listarProdutos);
 rotas.post('/produtos', verificacaoLogin, produtos.cadastrarProduto);
 rotas.put('/produtos/:id', verificacaoLogin, produtos.editarProduto);
-// rotas.get('/produtos/:id', produtos.verProduto);
+rotas.get('/produtos/:id', verificacaoLogin, produtos.listarProduto);
 rotas.delete('/produtos/:id', verificacaoLogin, produtos.deletarProduto);
 
 

@@ -43,6 +43,17 @@ const listarProdutos = async (req, res) => {
     }
 }
 
+const listarProduto = async (req, res) => {
+    const { id: idproduto } = req.params;
+
+    try {
+        const produtos = await conexao.query('select * from produtos where id = $1', [idproduto])
+        return res.status(200).json(produtos.rows);
+    } catch (error) {
+        return res.status(400).json(error.message);
+    }
+}
+
 const editarProduto = async (req, res) => {
     const { nome, estoque, categoria, preco, descricao } = req.body;
     const { id: idproduto } = req.params;
@@ -118,4 +129,5 @@ module.exports = {
     cadastrarProduto,
     editarProduto,
     deletarProduto,
+    listarProduto
 }
