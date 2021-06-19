@@ -8,7 +8,7 @@ async function post(resource, data, token) {
     headers.Authorization = `Bearer ${token}`
   }
 
-  const resposta = await fetch('https://desafio-m03.herokuapp.com' + resource, {
+  const resposta = await fetch('http://localhost:3001' + resource, {
     method: 'POST',
     body: JSON.stringify(data),
     headers,
@@ -23,7 +23,7 @@ async function get(resource, token) {
   if (token) {
     headers.Authorization = `Bearer ${token}`
   }
-  const resposta = await fetch('https://desafio-m03.herokuapp.com' + resource, {
+  const resposta = await fetch('http://localhost:3001' + resource, {
     headers
   });
 
@@ -36,7 +36,7 @@ async function del(resource, token) {
   if (token) {
     headers.Authorization = `Bearer ${token}`
   }
-  const resposta = await fetch('https://desafio-m03.herokuapp.com' + resource, {
+  const resposta = await fetch('http://localhost:3001' + resource, {
     method: 'DELETE',
     headers,
   });
@@ -52,7 +52,7 @@ async function put(resource, data, token) {
   if (token) {
     headers.Authorization = `Bearer ${token}`
   }
-  const resposta = await fetch('https://desafio-m03.herokuapp.com' + resource, {
+  const resposta = await fetch('http://localhost:3001' + resource, {
     method: 'PUT',
     body: JSON.stringify(data),
     headers,

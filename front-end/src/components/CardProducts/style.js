@@ -29,5 +29,8 @@ export default makeStyles({
   },
   cardImage: {
     objectFit: 'cover',
+  },
+  cardContent: {
+    height: 200,
   }
 });
