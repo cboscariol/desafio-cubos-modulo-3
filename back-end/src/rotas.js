@@ -8,7 +8,7 @@ const verificacaoLogin = require('./verificacoes/verificacaoLogin');
 const rotas = express();
 
 //usuario
-rotas.post('/cadastro', cadastrarUsuario.cadastrarUsuario);
+rotas.post('/usuarios', cadastrarUsuario.cadastrarUsuario);
 
 //perfil
 rotas.get('/perfil', verificacaoLogin, perfil.verPerfil);
