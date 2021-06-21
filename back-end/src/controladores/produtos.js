@@ -1,9 +1,9 @@
 const conexao = require('../conexao');
 
 const cadastrarProduto = async (req, res) => {
-    const { nome, estoque, categoria, preco, descricao } = req.body;
+    const { nome, estoque, categoria, preco, descricao, imagem } = req.body;
 
-    if (!nome) {
+    if (!nome && !estoque && !preco && !descricao && !categoria && !imagem) {
         return res.status(404).json('O campo nome é obrigatório');
     }
 
@@ -12,16 +12,20 @@ const cadastrarProduto = async (req, res) => {
     }
 
     if (!preco) {
-        return res.status(404).json('O campo preço é obrigatório');
+        return res.status(404).json('O campo preco é obrigatório');
     }
 
     if (!descricao) {
-        return res.status(404).json('O campo descrição é obrigatório');
+        return res.status(404).json('O campo descricao é obrigatório');
+    }
+
+    if (!imagem) {
+        return res.status(404).json('O campo imagem é obrigatório');
     }
 
     try {
-        const queryProduto = 'insert into produtos (usuario_id, nome, estoque, categoria, preco, descricao) values ($1, $2, $3, $4, $5, $6)';
-        const produto = await conexao.query(queryProduto, [req.usuario.id, nome, estoque, categoria, preco, descricao]);
+        const queryProduto = 'insert into produtos (usuario_id, nome, estoque, categoria, preco, descricao, imagem) values ($1, $2, $3, $4, $5, $6, $7)';
+        const produto = await conexao.query(queryProduto, [req.usuario.id, nome, estoque, categoria, preco, descricao, imagem]);
 
         if (produto.rowCount === 0) {
             return res.status(400).json('Não foi possível cadastrar o produto');
@@ -55,24 +59,12 @@ const listarProduto = async (req, res) => {
 }
 
 const editarProduto = async (req, res) => {
-    const { nome, estoque, categoria, preco, descricao } = req.body;
+    const { nome, estoque, categoria, preco, descricao, imagem } = req.body;
     const { id: idproduto } = req.params;
 
 
-    if (!nome) {
-        return res.status(404).json('O campo nome é obrigatório');
-    }
-
-    if (!estoque) {
-        return res.status(404).json('O campo estoque é obrigatório');
-    }
-
-    if (!preco) {
-        return res.status(404).json('O campo preço é obrigatório');
-    }
-
-    if (!descricao) {
-        return res.status(404).json('O campo descrição é obrigatório');
+    if (!nome && !estoque && !categoria && !preco && !descricao && !imagem) {
+        return res.status(404).json('É necessario preencher um dos campos para edição');
     }
 
     try {
@@ -83,8 +75,16 @@ const editarProduto = async (req, res) => {
             return res.status(404).json('O produto não foi encontrado');
         }
 
+        const produto = produtoExiste.rows[0];
         const queryAtualizaProduto = 'update produtos set nome = $1, estoque =$2, categoria = $3, preco = $4, descricao = $5 where usuario_id = $6';
-        const produtoAtualizado = await conexao.query(queryAtualizaProduto, [nome, estoque, categoria, preco, descricao, req.usuario.id]);
+        const produtoAtualizado = await conexao.query(queryAtualizaProduto, [
+            nome || produto.nome,
+            estoque || produto.estoque,
+            categoria || produto.categoria,
+            preco || produto.preco,
+            descricao || produto.descricao,
+            req.usuario.id
+        ]);
 
         if (produtoAtualizado.rowCount === 0) {
             return res.status(400).json('Não foi possível atualizar o produto');
