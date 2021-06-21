@@ -15,7 +15,7 @@ import useAuth from "../../hook/useAuth";
 export default function NovoProduto() {
 	const classes = useStyles();
 	const history = useHistory();
-	const { token } = useAuth();
+	const { token, user } = useAuth();
 
 	const [values, setValues] = React.useState({
 		nome: '',
@@ -51,7 +51,7 @@ export default function NovoProduto() {
 		<div className={classes.root}>
 			<div className={classes.newProducttitle}>
 				<Typography variant="h1" component="h2" className={classes.h1NewProduct}>
-					Nome da Loja
+					{user.nome_loja}
 				</Typography>
 
 				<Typography variant="h1" component="h2" className={classes.h2NewProduct}>

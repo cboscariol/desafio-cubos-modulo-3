@@ -36,7 +36,7 @@ function NavBar() {
 		if (history.location.pathname.includes('produto')) {
 			return <img src={StoreSelected} alt="StoreSelected" />
 		} else {
-			return <img clasName='noSelected' src={Store} alt="Store" />
+			return <img className='noSelected' src={Store} alt="Store" />
 		}
 	}
 
@@ -44,7 +44,7 @@ function NavBar() {
 		if (history.location.pathname.includes('perfil')) {
 			return <img src={UserSelected} alt="UserSelected" />
 		} else {
-			return <img clasName='noSelected' src={User} alt="User" />
+			return <img className='noSelected' src={User} alt="User" />
 		}
 	}
 
